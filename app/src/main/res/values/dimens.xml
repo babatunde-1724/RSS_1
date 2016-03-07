@@ -1,9 +1,0 @@
-<resources>
-    <dimen name="sixteen_dp">16dp</dimen>
-    <dimen name="five_dp">5dp</dimen>
-    <dimen name="six_dp">6dp</dimen>
-    <dimen name="ten_dp">10dp</dimen>
-    <dimen name="twen_dp">20dp</dimen>
-    <dimen name="zero_dp">0dp</dimen>
-    <dimen name="news_thunmbnail_height">240dp</dimen>
-</resources>
