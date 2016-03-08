@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/item_regions">
+    <menu>
+    <item android:title="@string/item_usa"
+          android:id="@+id/nav_item_usa"
+          android:icon="@drawable/location"/>
+
+    <item android:title="@string/item_asia"
+          android:id="@+id/nav_item_asia"
+          android:icon="@drawable/location"/>
+
+    <item android:title="@string/item_africa"
+        android:id="@+id/nav_item_africa"
+        android:icon="@drawable/location"/>
+
+    <item android:title="@string/item_middle_east"
+        android:id="@+id/nav_item_middle_east"
+        android:icon="@drawable/location"/>
+
+    <item android:title="@string/item_europe"
+        android:id="@+id/nav_item_europe"
+        android:icon="@drawable/location"/>
+
+    <item android:title="@string/item_america"
+        android:id="@+id/nav_item_america"
+        android:icon="@drawable/location"/>
+</menu>
+
+    </item>
+    <item android:title="@string/item_home"
+        android:id="@+id/nav_item_home"
+        android:icon="@drawable/home"/>
+
+    <item android:title="@string/item_profile"
+        android:id="@+id/nav_item_profile"
+        android:icon="@drawable/profile"/>
+
+</menu>
