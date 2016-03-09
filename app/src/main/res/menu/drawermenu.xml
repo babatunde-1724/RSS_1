@@ -36,5 +36,4 @@
     <item android:title="@string/item_profile"
         android:id="@+id/nav_item_profile"
         android:icon="@drawable/profile"/>
-
 </menu>
