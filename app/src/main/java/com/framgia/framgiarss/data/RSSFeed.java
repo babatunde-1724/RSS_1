@@ -1,16 +1,16 @@
-package com.framgia.framgiarss.data.model;
+package com.framgia.framgiarss.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class NewsEntity implements Parcelable {
-    public static final Creator<NewsEntity> CREATOR = new Creator<NewsEntity>() {
-        public NewsEntity createFromParcel(Parcel in) {
-            return new NewsEntity(in);
+public class RSSFeed implements Parcelable {
+    public static final Creator<RSSFeed> CREATOR = new Creator<RSSFeed>() {
+        public RSSFeed createFromParcel(Parcel in) {
+            return new RSSFeed(in);
         }
 
-        public NewsEntity[] newArray(int size) {
-            return new NewsEntity[size];
+        public RSSFeed[] newArray(int size) {
+            return new RSSFeed[size];
         }
     };
 
@@ -24,10 +24,10 @@ public class NewsEntity implements Parcelable {
     private String comments;
     private String enclosure;
 
-    public NewsEntity() {
+    public RSSFeed() {
     }
 
-    public NewsEntity(Parcel in) {
+    public RSSFeed(Parcel in) {
         guid = in.readString();
         link = in.readString();
         title = in.readString();
@@ -39,8 +39,7 @@ public class NewsEntity implements Parcelable {
         published_date = in.readString();
     }
 
-    public NewsEntity(String guid, String link, String title, String description, String url, String category, String author, String published_date, String comments, String enclosure)
-    {
+    public RSSFeed(String guid, String link, String title, String description, String category, String author, String published_date, String comments, String enclosure) {
         this.guid = guid;
         this.link = link;
         this.title = title;
@@ -115,6 +114,7 @@ public class NewsEntity implements Parcelable {
     public void setComments(String comments) {
         this.comments = comments;
     }
+
     public String getEnclosure() {
         return enclosure;
     }
