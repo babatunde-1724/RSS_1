@@ -14,8 +14,10 @@ public class AnimationUtils {
         containerToolbar.setAlpha(0.2F);
         containerToolbar.setPivotX(0.0F);
         containerToolbar.setPivotY(0.0F);
-        Animator alpha = ObjectAnimator.ofFloat(containerToolbar, "alpha", 0.2F, 0.4F, 0.6F, 0.8F, 1.0F).setDuration(4000);
-        Animator rotationX = ObjectAnimator.ofFloat(containerToolbar, "rotationX", -90, 60, -45, 45, -10, 30, 0, 20, 0, 5, 0).setDuration(8000);
+        Animator alpha = ObjectAnimator.ofFloat(containerToolbar, "alpha", 0.2F, 0.4F, 0.6F, 0.8F,
+                1.0F).setDuration(4000);
+        Animator rotationX = ObjectAnimator.ofFloat(containerToolbar, "rotationX", -90, 60, -45,
+                45, -10, 30, 0, 20, 0, 5, 0).setDuration(8000);
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.setInterpolator(new DecelerateInterpolator());
         animatorSet.playTogether(alpha, rotationX);
@@ -27,8 +29,10 @@ public class AnimationUtils {
         holder.itemView.setPivotY(goesDown == true ? 0 : holderHeight);
         holder.itemView.setPivotX(holder.itemView.getHeight());
         AnimatorSet animatorSet = new AnimatorSet();
-        ObjectAnimator animatorTranslateY = ObjectAnimator.ofFloat(holder.itemView, "translationY", goesDown == true ? 300 : -300, 0);
-        ObjectAnimator animatorRotation = ObjectAnimator.ofFloat(holder.itemView, "rotationX", goesDown == true ? -90f : 90, 0f);
+        ObjectAnimator animatorTranslateY = ObjectAnimator.ofFloat(holder.itemView, "translationY",
+                goesDown == true ? 300 : -300, 0);
+        ObjectAnimator animatorRotation = ObjectAnimator.ofFloat(holder.itemView, "rotationX",
+                goesDown == true ? -90f : 90, 0f);
         ObjectAnimator animatorScaleX = ObjectAnimator.ofFloat(holder.itemView, "scaleX", 0.5f, 1f);
         animatorSet.playTogether(animatorTranslateY, animatorRotation, animatorScaleX);
         animatorSet.setInterpolator(new DecelerateInterpolator(1.1f));
