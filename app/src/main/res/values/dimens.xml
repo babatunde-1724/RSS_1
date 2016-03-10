@@ -9,4 +9,5 @@
     <dimen name="eighteen">18dp</dimen>
     <dimen name="twelve">12dp</dimen>
     <dimen name="eighty_eight">88dp</dimen>
+    <dimen name="image_size">160dp</dimen>
 </resources>
