@@ -8,5 +8,5 @@ public class FeedsLink {
     public static final String ASIA = "http://www.voanews.com/api/zo$o_egviy?format=xml";
     public static final String MIDDLE_EAST = "http://www.voanews.com/api/zr$opeuvim?format=xml";
     public static final String EUROPE = "http://www.voanews.com/api/zj$oveytit?format=xml";
-    public static final String VOALINKS[] = {AMERICA,};
+    public static final String VOALINKS[] = {AMERICA, USA, AFRICA, ASIA, MIDDLE_EAST, EUROPE};
 }

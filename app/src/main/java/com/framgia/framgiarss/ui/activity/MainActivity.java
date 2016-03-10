@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import com.framgia.framgiarss.R;
 import com.framgia.framgiarss.anim.AnimationUtils;
+import com.framgia.framgiarss.ui.fragment.SlidingFragment;
 
 public class MainActivity extends ActionBarActivity {
     private Toolbar toolbar;
@@ -32,6 +33,8 @@ public class MainActivity extends ActionBarActivity {
         }
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            SlidingFragment fragment = new SlidingFragment();
+            transaction.replace(R.id.container, fragment);
             transaction.commit();
         }
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -44,7 +47,7 @@ public class MainActivity extends ActionBarActivity {
             }
 
         });
-        android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name,
                 R.string.app_name);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
