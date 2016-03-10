@@ -16,7 +16,6 @@ import android.widget.HorizontalScrollView;
 import android.widget.TextView;
 
 import com.framgia.framgiarss.utils.Constants;
-import com.framgia.framgiarss.utils.TabClickListener;
 
 @SuppressLint(Constants.ConstantKeys.NEWAPI)
 public class SlidingTabLayout extends HorizontalScrollView {
@@ -192,5 +191,16 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
     }
 
+    private class TabClickListener implements OnClickListener {
+        @Override
+        public void onClick(View v) {
+            for (int i = 0; i < mTabStrip.getChildCount(); i++) {
+                if (v == mTabStrip.getChildAt(i)) {
+                    mViewPager.setCurrentItem(i);
+                    return;
+                }
+            }
+        }
+    }
 
 }
