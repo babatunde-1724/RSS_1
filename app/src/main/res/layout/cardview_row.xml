@@ -13,25 +13,35 @@
         android:layout_margin="@dimen/five"
         android:background="?android:selectableItemBackground">
 
+        <ImageView
+            android:id="@+id/news_images"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitXY" />
+
         <TextView
             android:id="@+id/tvtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorPrimaryText"
-            android:textSize="@dimen/eighteen"
-            android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/tvpubdatetxt"
-            android:layout_alignStart="@+id/tvpubdatetxt" />
+            android:textSize="@dimen/fifteen"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/tvpubdate"
+            android:layout_alignStart="@+id/tvpubdate" />
 
         <TextView
             android:id="@+id/tvpubdatetxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tvtitle"
-            android:layout_margin="@dimen/five"
             android:text="@string/date_published"
             android:textColor="@color/colorAccent"
-            android:textSize="@dimen/twelve" />
+            android:textSize="@dimen/twelve"
+            android:gravity="bottom"
+            android:layout_below="@+id/news_images"
+            android:layout_alignRight="@+id/tvtitle"
+            android:layout_alignEnd="@+id/tvtitle" />
 
         <TextView
             android:id="@+id/tvpubdate"
@@ -39,11 +49,10 @@
             android:layout_height="wrap_content"
             android:textColor="@color/colorAccent"
             android:textSize="@dimen/twelve"
-            android:layout_marginLeft="@dimen/eighty_eight"
+            android:gravity="bottom"
             android:layout_alignTop="@+id/tvpubdatetxt"
-            android:layout_alignLeft="@+id/tvpubdatetxt"
-            android:layout_alignStart="@+id/tvpubdatetxt"
-            android:layout_marginStart="@dimen/eighty_eight" />
+            android:layout_toRightOf="@+id/news_images"
+            android:layout_toEndOf="@+id/news_images" />
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

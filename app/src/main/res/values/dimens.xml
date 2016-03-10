@@ -7,6 +7,8 @@
     <dimen name="three">3dp</dimen>
     <dimen name="five">5dp</dimen>
     <dimen name="eighteen">18dp</dimen>
+    <dimen name="fifteen">15dp</dimen>
+    <dimen name="ten">10dp</dimen>
     <dimen name="twelve">12dp</dimen>
     <dimen name="eighty_eight">88dp</dimen>
     <dimen name="image_size">160dp</dimen>
