@@ -25,7 +25,6 @@ public class NewsFeedParser {
     private String description;
     private String category;
     private String author;
-    private String comments;
     private String enclosure;
     private String pubDate;
     private String guid;
@@ -88,9 +87,7 @@ public class NewsFeedParser {
                             case Constants.ConstantKeys.ENCLOSURE:
                                 enclosure = parser.getAttributeValue(0);
                                 break;
-                            case Constants.ConstantKeys.COMMENTS:
-                                comments = parser.nextText();
-                                break;
+
                         }
                         break;
 
@@ -99,7 +96,7 @@ public class NewsFeedParser {
                             done = true;
                         } else if (tagName.equals(Constants.ConstantKeys.ITEM)) {
                             rssFeed = new RSSFeed(guid, link, title, description, category, author,
-                                    pubDate, enclosure, comments);
+                                    pubDate, enclosure);
                             rssFeedList.add(rssFeed);
                         }
                         break;

@@ -21,7 +21,6 @@ public class RSSFeed implements Parcelable {
     private String category;
     private String author;
     private String published_date;
-    private String comments;
     private String enclosure;
 
     public RSSFeed() {
@@ -34,12 +33,11 @@ public class RSSFeed implements Parcelable {
         description = in.readString();
         category = in.readString();
         author = in.readString();
-        comments = in.readString();
         enclosure = in.readString();
         published_date = in.readString();
     }
 
-    public RSSFeed(String guid, String link, String title, String description, String category, String author, String published_date, String comments, String enclosure) {
+    public RSSFeed(String guid, String link, String title, String description, String category, String author, String published_date, String enclosure) {
         this.guid = guid;
         this.link = link;
         this.title = title;
@@ -47,7 +45,6 @@ public class RSSFeed implements Parcelable {
         this.category = category;
         this.author = author;
         this.published_date = published_date;
-        this.comments = comments;
         this.enclosure = enclosure;
     }
 
@@ -107,14 +104,6 @@ public class RSSFeed implements Parcelable {
         this.author = author;
     }
 
-    public String getComments() {
-        return comments;
-    }
-
-    public void setComments(String comments) {
-        this.comments = comments;
-    }
-
     public String getEnclosure() {
         return enclosure;
     }
@@ -126,16 +115,15 @@ public class RSSFeed implements Parcelable {
     @Override
     public String toString() {
         return
-        "\nguid: " + guid +
-            "\nlink " + link +
-            "\ntitle " + title +
-            "\nabstract " + description +
-            "\ncategory " + category +
-            "\nitemType " + author +
-            "\npublishedDate " + published_date +
-            "\ncomments " + comments +
-            "\nenclosure " + enclosure +
-            "\n";
+                "\nguid: " + guid +
+                        "\nlink " + link +
+                        "\ntitle " + title +
+                        "\nabstract " + description +
+                        "\ncategory " + category +
+                        "\nitemType " + author +
+                        "\npublishedDate " + published_date +
+                        "\nenclosure " + enclosure +
+                        "\n";
     }
 
     @Override
@@ -151,7 +139,6 @@ public class RSSFeed implements Parcelable {
         dest.writeString(description);
         dest.writeString(category);
         dest.writeString(author);
-        dest.writeString(comments);
         dest.writeString(enclosure);
         dest.writeString(published_date);
     }

@@ -1,60 +1,97 @@
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    tools:context="com.framgia.framgiarss.ui.activity.DetailedNews">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+
+    <ImageView
+        android:id="@+id/news_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorWhite"
-        tools:context="com.framgia.framgiarss.ui.activity.DetailedNews">
+        android:layout_height="@dimen/image_size"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar"
+        android:scaleType="fitXY" />
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/news_image"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/image_news"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/toolbar"
-            android:scaleType="fitXY"
-             />
-
-        <ScrollView
-            android:id="@+id/SCROLLER_ID"
-            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/news_image"
-            android:fillViewport="true"
-            android:scrollbars="vertical">
+            android:background="@color/colorDetails"
+            android:gravity="center"
+
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/description"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_alignRight="@+id/fab"
-                android:layout_weight="1.0"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/colorPrimaryText" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/author"
+                android:textColor="@color/colorWhite" />
 
-        </ScrollView>
+            <TextView
+                android:id="@+id/tvauthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+    </LinearLayout>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorDetails"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="right"
-            android:clickable="true"
-            android:src="@drawable/location"
-            app:layout_anchorGravity="bottom|right|end" />
+            android:gravity="center"
+            android:orientation="horizontal">
 
-    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date_published"
+                android:textColor="@color/colorWhite" />
 
-</android.support.design.widget.CoordinatorLayout>
+            <TextView
+                android:id="@+id/tvpubdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <ScrollView
+        android:id="@+id/SCROLLER_ID"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/news_image"
+        android:layout_margin="@dimen/five"
+        android:fadeScrollbars="false"
+        android:fillViewport="true"
+        android:scrollbars="vertical">
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignRight="@+id/fab"
+            android:layout_weight="1.0"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/colorPrimaryText" />
+
+    </ScrollView>
+
+</LinearLayout>
