@@ -29,5 +29,12 @@ public class Constants {
         public static final String PUBLISHEDDATE = "pubDate";
         public static final String GUID = "guid";
         public static final String TEXT_PLAIN = "text/plain";
+        public static final String PDF_EXTENSION = ".pdf";
+        public static final String SD_PATH = "/sdcard/";
+        public static final String PDF_CREATED_MESSAGE = ".pdf created";
+        public static final String PDF_ERROR_MESSAGE = "problem creating file";
+        public static final String PDF_SAVE_MESSAGE = "Save as Pdf?";
+        public static final String SAVE = "Save";
+
     }
 }

@@ -46,17 +46,17 @@ public class WebViewActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.goto_home) {
-            finish();
-            return true;
-        } else if (id == R.id.share) {
-            Intent sendIntent = new Intent();
-            sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, murl);
-            sendIntent.setType(Constants.ConstantKeys.TEXT_PLAIN);
-            startActivity(sendIntent);
-            return true;
+        switch (item.getItemId()) {
+            case R.id.goto_home:
+                finish();
+                break;
+            case R.id.share:
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, murl);
+                sendIntent.setType(Constants.ConstantKeys.TEXT_PLAIN);
+                startActivity(sendIntent);
+                break;
         }
         return super.onOptionsItemSelected(item);
     }

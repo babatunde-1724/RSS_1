@@ -1,5 +1,7 @@
 package com.framgia.framgiarss.ui.activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -8,11 +10,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.framgia.framgiarss.R;
 import com.framgia.framgiarss.anim.AnimationUtils;
 import com.framgia.framgiarss.utils.Constants;
+import com.framgia.framgiarss.utils.CreatePdf;
 import com.framgia.framgiarss.utils.ImageDownloaderTask;
+import com.itextpdf.text.DocumentException;
+
+import java.io.FileNotFoundException;
 
 public class DetailedNews extends ActionBarActivity {
     private String title, url, image, description, author, pub_date;
@@ -58,22 +65,51 @@ public class DetailedNews extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.goto_link) {
-            Intent webIntent = new Intent(this, WebViewActivity.class);
-            webIntent.putExtra(Constants.ConstantKeys.TITILE, title);
-            webIntent.putExtra(Constants.ConstantKeys.URL, url);
-            startActivity(webIntent);
-            return true;
-        } else if (id == R.id.share) {
-            Intent sendIntent = new Intent();
-            sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, url);
-            sendIntent.setType(Constants.ConstantKeys.TEXT_PLAIN);
-            startActivity(sendIntent);
-            return true;
+        switch (item.getItemId()) {
+            case R.id.goto_link:
+                Intent webIntent = new Intent(this, WebViewActivity.class);
+                webIntent.putExtra(Constants.ConstantKeys.TITILE, title);
+                webIntent.putExtra(Constants.ConstantKeys.URL, url);
+                startActivity(webIntent);
+                break;
+            case R.id.share:
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, url);
+                sendIntent.setType(Constants.ConstantKeys.TEXT_PLAIN);
+                startActivity(sendIntent);
+                break;
+            case R.id.print:
+                printPdf();
+                break;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void printPdf() {
+        new AlertDialog.Builder(this).setTitle(Constants.ConstantKeys.SAVE)
+                .setMessage(Constants.ConstantKeys.PDF_SAVE_MESSAGE)
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        CreatePdf createPdf = new CreatePdf();
+                        createPdf.write(title, pub_date, description, author);
+                        if (createPdf.write(title, pub_date, description, author)) {
+                            Toast.makeText(getApplicationContext(),
+                                    title + Constants.ConstantKeys.PDF_CREATED_MESSAGE, Toast.LENGTH_SHORT)
+                                    .show();
+                        } else {
+                            Toast.makeText(getApplicationContext(), Constants.ConstantKeys.PDF_ERROR_MESSAGE,
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).setIcon(android.R.drawable.ic_menu_save).show();
     }
 
 }
