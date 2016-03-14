@@ -28,5 +28,6 @@ public class Constants {
         public static final String ENCLOSURE = "enclosure";
         public static final String PUBLISHEDDATE = "pubDate";
         public static final String GUID = "guid";
+        public static final String TEXT_PLAIN = "text/plain";
     }
 }

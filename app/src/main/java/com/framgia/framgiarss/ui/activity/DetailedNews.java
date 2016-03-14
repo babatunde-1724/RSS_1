@@ -65,6 +65,13 @@ public class DetailedNews extends ActionBarActivity {
             webIntent.putExtra(Constants.ConstantKeys.URL, url);
             startActivity(webIntent);
             return true;
+        } else if (id == R.id.share) {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, url);
+            sendIntent.setType(Constants.ConstantKeys.TEXT_PLAIN);
+            startActivity(sendIntent);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
