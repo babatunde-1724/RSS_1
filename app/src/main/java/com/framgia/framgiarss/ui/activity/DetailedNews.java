@@ -60,6 +60,10 @@ public class DetailedNews extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.goto_link) {
+            Intent webIntent = new Intent(this, WebViewActivity.class);
+            webIntent.putExtra(Constants.ConstantKeys.TITILE, title);
+            webIntent.putExtra(Constants.ConstantKeys.URL, url);
+            startActivity(webIntent);
             return true;
         }
         return super.onOptionsItemSelected(item);
