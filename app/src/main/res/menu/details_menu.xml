@@ -3,6 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activities.DetailedNews">
     <item
+        android:id="@+id/share"
+        android:icon="@drawable/share"
+        app:showAsAction="ifRoom"
+        android:title="@string/item_source">
+    </item>
+    <item
         android:id="@+id/goto_link"
         android:icon="@drawable/goto_image"
         app:showAsAction="ifRoom"

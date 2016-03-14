@@ -1,6 +1,7 @@
 package com.framgia.framgiarss.ui.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
@@ -22,7 +23,8 @@ public class WebViewActivity extends ActionBarActivity {
     private String murl;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_webview);
         mtoolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mtoolbar);
@@ -47,6 +49,13 @@ public class WebViewActivity extends ActionBarActivity {
         int id = item.getItemId();
         if (id == R.id.goto_home) {
             finish();
+            return true;
+        } else if (id == R.id.share) {
+            Intent sendIntent = new Intent();
+            sendIntent.setAction(Intent.ACTION_SEND);
+            sendIntent.putExtra(Intent.EXTRA_TEXT, murl);
+            sendIntent.setType(Constants.ConstantKeys.TEXT_PLAIN);
+            startActivity(sendIntent);
             return true;
         }
         return super.onOptionsItemSelected(item);
@@ -82,6 +91,7 @@ public class WebViewActivity extends ActionBarActivity {
             }
         });
         runOnUiThread(new Runnable() {
+
             @Override
             public void run() {
                 mwebView.loadUrl(murl);
